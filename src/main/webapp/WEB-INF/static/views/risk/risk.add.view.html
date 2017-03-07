@@ -1,0 +1,265 @@
+<script type="text/ng-template" id="risk.add.view.html">
+    <form role="form" novalidate name="loginForm">
+        <div class="modal-header">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-header" style="color: slategray;">
+                        Administración de Riesgos
+                    </h1>
+                    <ol class="breadcrumb" style="background: #055473;color: wheat;">
+                        <li class="active">
+                            <span class="zmdi zmdi-alert-triangle text-white"></span></i> <i
+                                class="zmdi zmdi-circle text-white"></i><a
+                                class="text-white"> Riesgos </a> <i class="zmdi zmdi-circle text-white"></i> <span
+                                class="text-white">administración de riesgos</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <div class="row row-content">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <b><h5>IDENTIFICACION DE RIESGOS</h5></b>
+                        <hr class="hr_line">
+
+
+                        <fieldset>
+                            <div class="form-group">
+                                <label>Nombre Proyecto</label>
+                                <input class="form-control" placeholder="Proyect Name" type="text" disabled
+                                       data-ng-required="true" ng-model="riskModel.proyect_Name">
+                            </div>
+                            <div class="form-group">
+                                <label>Cliente</label>
+                                <input class="form-control" placeholder="Customer" type="text" disabled
+                                       data-ng-required="true" ng-model="customer_name">
+                            </div>
+                            <div class="form-group">
+                                <label>Riesgo</label>
+                                <textarea class="form-control" rows="3"
+                                          placeholder="Describe a detalle el Riesgo"
+                                          ng-model="riskModel.risk" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Fase</label>
+                                        <select class="form-control" ng-model="riskModel.id_Phase" required>
+                                            <option ng-repeat="phase in RiskDependencies.phaseDtos"
+                                                    value="{{phase.phase_Name}}">
+                                                {{phase.phase_Name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Tipo</label>
+                                        <select class="form-control" ng-model="riskModel.id_Type" required>
+                                            <option ng-repeat="type in RiskDependencies.typeDtos"
+                                                    value="{{type.type_Name}}">
+                                                {{type.type_Name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Fuente</label>
+                                        <select class="form-control" ng-model="riskModel.id_Source" required>
+                                            <option ng-repeat="source in RiskDependencies.sourceDtos"
+                                                    value="{{source.source_Name}}">
+                                                {{source.source_Name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                </div>
+                            </div>
+
+                            <b><h5 class="margin-top-30px">RESPUESTA A RIESGOS</h5></b>
+                            <hr class="hr_line">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Estrategia</label>
+                                        <select class="form-control" ng-model="riskModel.id_Strategy" required>
+                                            <option ng-repeat="stragegy in RiskDependencies.stragegyDtos"
+                                                    value="{{stragegy.stragegy_Name}}">
+                                                {{stragegy.stragegy_Name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Fecha Compromiso</label>
+                                        <datepicker date-format="yyyy-MM-dd" button-prev-title="previous month"
+                                                    selector="form-control">
+                                            <div class="input-group">
+                                                <input class="form-control" ng-model="riskModel._com_date"
+                                                       placeholder="Selecciona una fecha"
+                                                       required/>
+                                            <span class="input-group-addon" style="cursor: pointer">
+                                                 <i class="zmdi zmdi-calendar text-dark-darker"></i>
+                                             </span>
+                                            </div>
+                                        </datepicker>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Acciones de mitigación</label>
+                                <textarea class="form-control" rows="3"
+                                          placeholder="Describe a detalle las acciones de mitigacion"
+                                          ng-model="riskModel.mitigation_Actions"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Acciones de contingencia</label>
+                                <textarea class="form-control" rows="3"
+                                          placeholder="Describe a detalle las acciones de contingencia"
+                                          ng-model="riskModel.contingency_actions"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Responsable</label>
+                                <input class="form-control" placeholder="Responsable" type="text"
+                                       required
+                                       ng-model="riskModel.owner">
+                            </div>
+
+
+                        </fieldset>
+
+                    </div>
+                    <div class="col-md-6">
+                        <b><h5>EVALUACIÓN DE RIESGOS</h5></b>
+                        <hr class="hr_line">
+
+                        <div class="form-group">
+                            <label>Impacto</label>
+                                <textarea class="form-control" rows="3"
+                                          placeholder="Describe a detalle el Impacto" required
+                                          ng-model="riskModel.impact"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Causas Potenciales</label>
+                                <textarea class="form-control" rows="3"
+                                          placeholder="Describe a detalle las causas Potenciales" required
+                                          ng-model="riskModel.potential_Causes"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Prioridad</label>
+                                <div class="div_status" style="background-color: {{riskModel.priority}}"></div>
+                                <br>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Probabilidad</label>
+                                    <select class="form-control" ng-model="riskModel.id_Probability" required ng-change="setPriority()">
+                                        <option ng-repeat="probability in RiskDependencies.probabilityDtos"
+                                                value="{{probability.probability_Value}}">
+                                            {{probability.probability_Name}}
+                                        </option>
+                                    </select></div>
+                                <div class="form-group">
+                                    <label>Impacto</label>
+                                    <select class="form-control" ng-model="riskModel.id_Impact" required ng-change="setPriority()">
+                                        <option ng-repeat="impact in RiskDependencies.impactDtos"
+                                                value="{{impact.impact_Value}}">
+                                            {{impact.impact_Name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <b><h5 class="margin-top-30px">SEGUIMIENTO A RIESGOS</h5></b>
+                        <hr class="hr_line">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Frecuencia de Monitoreo</label>
+                                    <select class="form-control" ng-model="riskModel.id_Frequency_of_Monitoring" required>
+                                        <option ng-repeat="frequencyMonitoring in RiskDependencies.frequencyMonitoringDtos"
+                                                value="{{frequencyMonitoring.frequencyMonitoring_Name}}">
+                                            {{frequencyMonitoring.frequencyMonitoring_Name}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Efectividad de las acciones</label>
+                                    <select class="form-control" ng-model="riskModel.id_Effectiveness_of_Actions">
+                                        <option ng-repeat="effectivenessAction in RiskDependencies.effectivenessActionsDtos"
+                                                value="{{effectivenessAction.effectivenessActions_Name}}">
+                                            {{effectivenessAction.effectivenessActions_Name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Estatus</label>
+                                    <select class="form-control" ng-model="riskModel.id_Status" required>
+                                        <option ng-repeat="status in RiskDependencies.statusDtos"
+                                                value="{{status.status_Name}}">
+                                            {{status.status_Name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Responsable de Monitoreo</label>
+                            <input class="form-control" placeholder="Responsable de Monitoreo" type="text"
+                                   required
+                                   ng-model="riskModel.monitoring_Owner">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <b ng-show="riskModel.commentRisk.length >0"><h5 class="margin-top-30px">COMENTARIOS</h5></b>
+                        <hr class="hr_line" ng-show="riskModel.commentRisk.length >0">
+                        <table class="table table-condensed" ng-show="riskModel.commentRisk.length >0">
+                            <tbody>
+                            <tr class="bg-blue-active">
+                                <th>Comentario</th>
+                                <th>Usuario</th>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                            </tr>
+                            <tr ng-repeat="comment in riskModel.commentRisk">
+                                <td style="width: 550px;">{{comment.comment}}</td>
+                                <td>{{comment.user_information}}</td>
+                                <td>{{ comment.created_At | date:'dd-MM-yyyy'}}</td>
+                                <td>{{ comment.created_At | date:'HH:mm:ss'}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row pages-padbot">
+                    <div class="col-sm-3 margin-top-30px"></div>
+                    <div class="col-sm-3 margin-top-30px">
+                        <a class="btn btn-warning btn-block" ng-click="cancel()">Cancelar</a><br>
+                    </div>
+                    <div class="col-sm-3 margin-top-30px"  ng-show="editRisk">
+                        <button class="btn btn-primary btn-block" ng-click="save()"
+                                data-ng-disabled="loginForm.$invalid" ng-disabled="loginForm.$invalid">Actualizar
+                        </button>
+                        <br>
+                    </div>
+                    <div class="col-sm-3 margin-top-30px" ng-show="!editRisk">
+                        <button class="btn btn-success btn-block" ng-click="save()"
+                                data-ng-disabled="loginForm.$invalid" ng-disabled="loginForm.$invalid">Guardar
+                        </button>
+                        <br>
+                    </div>
+                    <div class="col-sm-3 margin-top-30px"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</script>

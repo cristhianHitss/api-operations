@@ -1,0 +1,113 @@
+<script type="text/ng-template" id="rework.show.view.html">
+    <div class="modal-header">
+        <div class="row">
+            <div class="col-md-12">
+                <a ng-click="cancel()" style="text-decoration: none;">
+                    <h1 class="page-header" style="color: slategray;;">
+                        <i class="zmdi zmdi-arrow-back margin-right-10px select-item-pointer"></i>Administración de Metricas de Retrabajo</h1></a>
+                <ol class="breadcrumb" style="background: #055473;color: wheat;">
+                    <li class="active">
+                        <span class="zmdi zmdi-card-travel text-white"></span></i> <i
+                            class="zmdi zmdi-circle text-white"></i><a
+                            class="text-white"> Retrabajo </a> <i class="zmdi zmdi-circle text-white"></i> <span
+                            class="text-white">administración de metricas de retrabajo</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="row row-content">
+            <div class="col-md-12">
+            <div class="col-md-4">
+                <img src="http://cdn1.buuteeq.com/upload/2002856/placeholder.png.1236x617_default.png"
+                     class="img-responsive margin-bottom">
+
+                <h3 class="profile-username text-center">{{risk_proyect.proyect_Name}}</h3>
+
+                <p class="text-muted text-center">{{risk_proyect.customer}}</p>
+            </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="box box-solid"
+                                 style="position: relative; left: 0px; top: 0px;">
+                                <div class="box-body border-radius-none" style="display: block;">
+                                    <div class="col-md-12">
+                                        <br>
+
+                                        <div ng-if="_total == 0">
+                                            <h5 class="text-center text-muted"> No hay riesgos</h5>
+                                        </div>
+                                        <div ng-if="_total != 0">
+                                            <canvas id="doughnut" class="chart chart-doughnut"
+                                                    chart-data="type_proyects_data"
+                                                    chart-labels="type_proyects_labels">
+                                            </canvas>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="table-responsive">
+                                <table class="table no-margin">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Fase Proyecto</th>
+                                        <th>Cantidad</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="risk_type in risk_proyect.risk_type">
+                                        <td><span class="label"
+                                                  style="background-color: {{colors[$index]}};">    </span></td>
+                                        <td>{{risk_type.type | uppercase}}</td>
+                                        <td>{{risk_type.total}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </div>
+            <div class="col-md-12">
+                <br>
+                <div class="table-responsive">
+                    <table class="table no-margin">
+                        <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Donde se ENCONTRÓ el defecto</th>
+                            <th>Donde se INYECTO el defecto</th>
+                            <th>Fase</th>
+                            <th>Esfuerzo</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="risk_type in risk_proyect.risk_type">
+                            <td>10/07/2016</td>
+                            <td>IPM Plan de Proyecto</td>
+                            <td>IPM Plan de Proyecto</td>
+                            <td>Incidencia</td>
+                            <td>Baja</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-md-12 select-item-pointer" ng-click="edit(risk)">
+                                        <a class=" text-center" style="color: #18bc9c;">        Detalle
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

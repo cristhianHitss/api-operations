@@ -1,0 +1,155 @@
+<ng-include src="'static/views/rework/rework.show.view.html'"></ng-include>
+<ng-include src="'static/views/risk/risk.add.view.html'"></ng-include>
+<ng-include src="'static/views/risk/risk.show.risks.view.html'"></ng-include>
+<ng-include src="'static/views/risk/risk.historic.view.html'"></ng-include>
+<main>
+    <div id="page-wrapper" class="">
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-header" style="color: slategray;;">Administración de Metricas de Retrabajo</h1>
+                <ol class="breadcrumb" style="background: #055473;color: wheat;">
+                    <li class="active">
+                        <span class="zmdi zmdi-card-travel text-white"></span></i> <i
+                            class="zmdi zmdi-circle text-white"></i><a
+                            class="text-white"> Retrabajo </a> <i class="zmdi zmdi-circle text-white"></i> <span
+                            class="text-white">administración de metricas de retrabajo</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-md-12">
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="zmdi zmdi-search"></i>
+                            </div>
+                            <div angucomplete-alt id="ex1"
+                                 placeholder="Buscar Proyecto"
+                                 maxlength="50"
+                                 pause="100"
+                                 selected-object="selectedProyect"
+                                 local-data="proyects"
+                                 search-fields="proyect_Name"
+                                 title-field="proyect_Name"
+                                 minlength="1"
+                                 input-class="form-control form-control-small pull-right"
+                                 match-class="highlight">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="row" ng-init="select_list_mode('list')">
+                            <div class="col-md-6  hvr-underline-from-center select-item-pointer"
+                                 ng-click="select_list_mode('list')" id="list">
+                                <label class="radio-inline">
+                                    <i class="zmdi zmdi-view-list-alt zmdi-hc-2x"></i>
+                                </label>
+                            </div>
+                            <div class="col-md-6 hvr-underline-from-center select-item-pointer"
+                                 ng-click="select_list_mode('square')"
+                                 id="square">
+                                <label class="radio-inline  ">
+                                    <i class="zmdi zmdi-view-module zmdi-hc-2x"></i>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="!load" class="center">
+                <ng-include src="'static/views/utils/loading.view.html'"></ng-include>
+            </div>
+
+            <div class="col-md-12" ng-show="load">
+                <div class="col-md-5"></div>
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-5"></div>
+            </div>
+
+            <div class="col-md-12 margin-top-10px">
+                <div ng-if="list">
+                    <table class="table table-striped">
+                        <thead class="bg-blue-active">
+                        <td class="text-white"><i class="zmdi zmdi-card-travel margin-right-10px"></i> Proyecto</td>
+                        <td><i class="zmdi zmdi-folder-shared margin-right-10px"></i>Cliente</td>
+                        <td><i class="zmdi zmdi-group-work margin-right-10px"></i>Tipo de Proyecto</td>
+                        <td></td>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="proyect in proyects | filter:selectedProyect.originalObject.proyect_Name as filter_risk_proyects" >
+                            <td>
+                                <h5 style="font-size: 14px;" class="bold">{{proyect.proyect_Name | limitTo : 24}}</h5>
+                            </td>
+                            <td>
+                                <h5 style="font-size: 14px;">{{proyect.customer | limitTo :26}}</h5>
+                            </td>
+                            <td>
+                                <h5 style="font-size: 14px;">{{proyect.proyect_Type}}</h5>
+                            </td>
+                            <td>
+                                <div class="col-xs-12 col-sm-12 col-lg-12 select-item-pointer">
+                                    <a class=" text-center" style="color: #18bc9c;"
+                                       ng-click="select(proyect)" >Abrir Proyecto
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-md-4" ng-repeat="proyect in proyects | filter:selectedProyect.originalObject.proyect_Name as filter_risk_proyects"
+                     ng-if="square">
+                    <div class="box box-solid bg-blue-active"
+                         style="position: relative; left: 0px; top: 0px;box-shadow: 2px 2px 1px #7b7b7b">
+                        <div class="box-header select-item-pointer">
+                            <i class="fa fa-th"></i>
+
+                            <h4 class="box-title text-white" style="font-size: 14px;">
+                                <i class="zmdi zmdi-card-travel margin-right-10px"></i>
+                                {{proyect.proyect_Name | limitTo : 26}}
+                            </h4><br>
+                            <h6 class="text-white margin-left-10px ">
+                                <i class="zmdi zmdi-folder-shared margin-right-10px"></i>
+                                {{proyect.customer | limitTo :26}}
+                            </h6>
+                            <h6 class="text-white margin-left-10px ">
+                                <i class="zmdi zmdi-group-work margin-right-10px"></i>
+                                {{proyect.proyect_Type}}
+                            </h6>
+                        </div>
+                        <div class="box-footer no-border select-item-pointer" ng-click="select(proyect)"
+                             style="display: block;">
+                            <div class="row">
+                                <div class="col-xs-3 text-center">
+                                </div>
+                                <div class="col-xs-6 text-center ">
+                                    <div class="knob-label margin-top-5px"><span
+                                            class="zmdi zmdi-eye text-muted"></span> Abrir Proyecto
+                                    </div>
+                                </div>
+                                <div class="col-xs-3 text-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-if="filter_risk_proyects == 0 && load">
+                    <h5 class="text-center bold">No se encontraron coincidencias</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script type="text/javascript" src="static/bower_components/dashboard-template/init-knob.js"></script>
+

@@ -1,0 +1,140 @@
+<script type="text/ng-template" id="risk.show.view.html">
+    <div class="modal-header">
+        <div class="row">
+            <div class="col-md-12">
+                <a ng-click="cancel()" style="text-decoration: none;"><h1 class="page-header" style="color: slategray;">
+                    <i class="zmdi zmdi-arrow-back margin-right-10px select-item-pointer"></i> Administración de Riesgos
+                </h1></a>
+                <ol class="breadcrumb" style="background: #055473;color: wheat;">
+                    <li class="active">
+                        <span class="zmdi zmdi-alert-triangle text-white"></span></i> <i
+                            class="zmdi zmdi-circle text-white"></i><a
+                            class="text-white"> Riesgos </a> <i class="zmdi zmdi-circle text-white"></i> <span
+                            class="text-white">administración de riesgos</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="row row-content">
+            <div class="col-md-4">
+                <!-- <img class="img-responsive margin-bottom"
+                              src="http://bancadigital.bancomer.com/solucion-personal/m/public/img/logo.png">-->
+                <img src="http://cdn1.buuteeq.com/upload/2002856/placeholder.png.1236x617_default.png"
+                     class="img-responsive margin-bottom">
+
+                <h3 class="profile-username text-center">{{risk_proyect.proyect_Name}}</h3>
+
+                <p class="text-muted text-center">{{risk_proyect.customer}}</p>
+                <hr>
+                <strong>ID Proyecto</strong>
+
+                <p class="text-muted">
+                    {{risk_proyect.proyect_Id}}
+                </p>
+                <hr>
+                <strong>Agrupacion</strong>
+
+                <p class="text-muted">
+                    {{risk_proyect.group}}
+                </p>
+                <hr>
+                <strong>Sector</strong>
+
+                <p class="text-muted">
+                    {{risk_proyect.sector}}
+                </p>
+                <hr>
+                <strong>Linea de Negocio</strong>
+
+                <p class="text-muted">
+                    {{risk_proyect.bussines_Line}}
+                </p>
+                <hr>
+                <strong>Tipo de Proyecto</strong>
+
+                <p class="text-muted">
+                    {{risk_proyect.proyect_Type}}
+                </p>
+                <hr>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="box box-solid"
+                             style="position: relative; left: 0px; top: 0px;">
+                            <div class="box-body border-radius-none" style="display: block;">
+                                <div class="col-md-12">
+                                    <br>
+
+                                    <div ng-if="_total == 0">
+                                        <h5 class="text-center text-muted"> No hay riesgos</h5>
+                                    </div>
+                                    <div ng-if="_total != 0">
+                                        <canvas id="doughnut" class="chart chart-doughnut"
+                                                chart-data="type_proyects_data"
+                                                chart-labels="type_proyects_labels">
+                                        </canvas>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Tipo de Riesgo</th>
+                                    <th>Cantidad</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="risk_type in risk_proyect.risk_type">
+                                    <td><span class="label"
+                                              style="background-color: {{colors[$index]}};">    </span></td>
+                                    <td>{{risk_type.type | uppercase}}</td>
+                                    <td>{{risk_type.total}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- S E C O N D   C O L U M N  -->
+                <table class="table table-condensed">
+                    <tbody>
+                    <tr>
+                        <th></th>
+                        <th>Riesgo</th>
+                    </<tr>
+                    <tr ng-show="risk_proyect.proyect_Risk != 0" ng-if="$index < 3"
+                        ng-repeat="risk in risk_proyect.proyect_Risk | orderBy:'-priority_order_identifier'">
+                        <td><span class="label" style="background-color: {{risk.priority}}">    </span></td>
+                        <td>{{risk.risk}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="row" ng-if="risk_proyect.proyect_Risk == 0">
+                    <h5 class="text-center">Este proyecto no tiene riesgos.</h5>
+                </div><br>
+                <div class="col-md-6 select-item-pointer" style="text-align: center;">
+                    <a class=" text-center"  style="color: #18bc9c;"  ng-click="showAll()">Mostrar todo
+                    </a>
+                </div>
+                <div class="col-md-6 select-item-pointer" style="text-align: center;">
+                    <a class=" text-center"  style="color: #18bc9c;" ng-click="create()">Agregar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+
+

@@ -1,0 +1,121 @@
+<script type="text/ng-template" id="risk.print.view.html">
+    <form role="form" novalidate name="loginForm">
+        <div class="modal-header">
+            <div class="row">
+                <div class="col-md-12">
+                    <button ng-click="print()" class="btn btn-primary" style="float: right;"> <i class="zmdi zmdi-print"></i> Imprimir</button>
+                    <a ng-click="cancel()" style="text-decoration: none;"><h1 class="page-header" style="color: slategray;">
+                        <i class="zmdi zmdi-arrow-back margin-right-10px select-item-pointer"></i> Administración de Riesgos
+                    </h1></a>
+                    <ol class="breadcrumb" style="background: #055473;color: wheat;">
+                        <li class="active">
+                            <span class="zmdi zmdi-alert-triangle text-white"></span></i> <i
+                                class="zmdi zmdi-circle text-white"></i><a
+                                class="text-white"> Riesgos </a> <i class="zmdi zmdi-circle text-white"></i> <span
+                                class="text-white">administración de riesgos</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <div class="row row-content"  id="printThis">
+                <div class="col-md-6">
+                    <b  style="color: #3d5063"><h5>IDENTIFICACION DE RIESGOS</h5></b>
+                    <hr class="hr_line">
+                    <dl class="dl-horizontal">
+                        <h5 class="bold">Nombre Proyecto</h5>
+                        <p>{{riskModel.proyect_Name}}</p>
+                        <h5 class="bold">Cliente</h5>
+                        <p>{{customer_name}}</p>
+                        <h5 class="bold">Riesgo</h5>
+                        <p>{{riskModel.risk}}</p>
+                        <h5 class="bold">Fase</h5>
+                        <p>{{riskModel.id_Phase}}</p>
+                        <h5 class="bold">Tipo</h5>
+                        <p>{{riskModel.id_Type}}</p>
+                        <h5 class="bold">Fuente</h5>
+                        <p>{{riskModel.id_Source}}</p>
+                    </dl>
+
+                    <b  style="color: #3d5063"><h5 class="margin-top-30px">RESPUESTA A RIESGOS</h5></b>
+                    <hr class="hr_line">
+                    <dl class="dl-horizontal">
+                        <h5 class="bold">Estrategia</h5>
+                        <p>{{riskModel.id_Strategy}}</p>
+                        <h5 class="bold">Fecha Compromiso</h5>
+                        <p>{{riskModel._com_date}}</p>
+                        <h5 class="bold">Acciones de mitigación</h5>
+                        <p>{{riskModel.mitigation_Actions}}</p>
+                        <h5 class="bold">Acciones de contingencia</h5>
+                        <p>{{riskModel.contingency_actions}}</p>
+                        <h5 class="bold">Responsable</h5>
+                        <p>{{riskModel.owner}}</p>
+                    </dl>
+
+
+                </div>
+                <div class="col-md-6">
+
+                    <b  style="color: #3d5063"><h5>EVALUACIÓN DE RIESGOS</h5></b>
+                    <hr class="hr_line">
+                    <dl class="dl-horizontal" style="margin-bottom: -11px;">
+                        <h5 class="bold" class="bold">Impacto</h5>
+                        <p>{{riskModel.impact}}</p>
+                        <h5 class="bold">Causas Potenciales</h5>
+                        <p>{{riskModel.potential_Causes}}</p>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h5 class="bold">Prioridad</h5>
+                                <p> <div style="background-color: {{riskModel.priority}}; width: 50px; height: 50px; margin-top: 3px;"></div></p>
+                                <br>
+                            </div>
+                            <div class="col-md-8">
+                                <h5 class="bold">Probabilidad</h5>
+                                <p>{{riskModel.id_Probability}}</p>
+                                <h5 class="bold">Impacto</h5>
+                                <p>{{riskModel.id_Impact}}</p>
+                            </div>
+                        </div>
+                    </dl>
+                    <b style="color: #3d5063"><h5 class="margin-top-30px">SEGUIMIENTO A RIESGOS</h5></b>
+                    <hr class="hr_line">
+                    <dl class="dl-horizontal">
+                        <h5 class="bold">Frecuencia de Monitoreo</h5>
+                        <p>{{riskModel.id_Frequency_of_Monitoring}}</p>
+                        <h5 class="bold">Efectividad de las acciones</h5>
+                        <p>{{riskModel.id_Effectiveness_of_Actions}}</p>
+                        <h5 class="bold">Estatus</h5>
+                        <p>{{riskModel.id_Status}}</p>
+                        <h5 class="bold">Responsable de Monitoreo</h5>
+                        <p>{{riskModel.monitoring_Owner}}</p>
+                    </dl>
+                </div>
+                <div class="col-md-12">
+                    <b style="color: #3d5063;text-align: center;"><h5 class="margin-top-30px">HISTORICO DE MODIFICACIONES</h5></b>
+                    <br>
+                    <br>
+                    <div  ng-repeat="historic in historics" ng-if="historics != 0">
+                       <h5 class="bold" class="card-title"><img src="https://cdn3.iconfinder.com/data/icons/folders-outline/512/delayed_postponed_folder_clock_timer_archive-512.png" style="width: 30px;">  Actualizado por <b style="color: #0073b7">{{historic.owner}} </b>
+                            el <b
+                                    style="color: #0073b7"> {{ historic.created_at |
+                                date:'p-MM-yyyy'}} </b> a
+                            las <b style="color: #0073b7"> {{ historic.created_at | date:'HH:mm:ss'}}</b><small class=" text-orange" style="float: right;margin-right: 3px;">- {{ historic.id}} -</small></h5>
+                        <hr class="hr_line" style="margin: 0px;margin-top: -10px;background: #9e9e9e;">
+                        <div class="card-block">
+                            <p style=" color: #b4b4b4;" ng-repeat="modified in historic.modificationFieldDtos"><b
+                                    style="color: #5a5a5a;">{{modified.field_name}}: </b>{{modified.field_message}}
+                            </p>
+                        </div>
+                        <footer><cite title="Source Title"> {{historic.tmp_comment}}</cite></footer>
+                        <br>
+                    </div>
+                    <div class="row" ng-if="historics == 0">
+                       <h5 class="bold" class="text-center">Este riesgo no ha tenido modificaciones</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</script>

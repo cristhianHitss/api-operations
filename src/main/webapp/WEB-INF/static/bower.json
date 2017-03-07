@@ -1,0 +1,30 @@
+{
+  "name": "static",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "^0.3.2",
+    "angular-resource": "1.6.0",
+    "angular-cookies": "1.6.0",
+    "animate.css": "^3.5.2",
+    "AngularJS-Toaster": "^2.1.0",
+    "ngSweetAlert": "angular-sweetalert#^1.1.2",
+    "angular-chart.js": "^1.1.1",
+    "angularjs-datepicker": "^2.1.9",
+    "angular-tooltips": "^1.1.8",
+    "angular-bootstrap": "^2.4.0",
+    "angular-cryptography": "^1.0.1",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
+    "angucomplete": "*",
+    "angucomplete-alt": "^3.0.0"
+  }
+}

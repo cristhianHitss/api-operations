@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="global-hitss-app">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="   description" content="">
+    <meta name="author" content="">
+    <title>Operaciones Mexico</title>
+    <link rel="shortcut icon" href="static/assets/images/Favicon.png"/>
+    <link href="static/style/app.css" rel="stylesheet"/>
+    <link href="static/style/app.loading.css" rel="stylesheet"/>
+    <link href="static/style/app.scrollbar.css" rel="stylesheet"/>
+
+    <!-- A D M I N      T E M P L A T E    D E P E N D E N C I E S -->
+    <link href="static/bower_components/dashboard-template/bootstrap.css" rel="stylesheet"/>
+    <link href="static/bower_components/AngularJS-Toaster/toaster.min.css" rel="stylesheet"/>
+    <link href="static/bower_components/dashboard-template/metisMenu.min.css" rel="stylesheet"/>
+    <link href="static/bower_components/dashboard-template/material-design-iconic-font.min.css" rel="stylesheet"/>
+    <link href="static/bower_components/animate.css/animate.css" rel="stylesheet"/>
+    <link href="static/bower_components/dashboard-template/hover.css" rel="stylesheet"/>
+    <link href="static/bower_components/dashboard-template/deluxe-admin.css" rel="stylesheet"/>
+    <link href="static/bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet"/>
+    <link href="static/style/app.alert.google.css" rel="stylesheet"/>
+    <link href="static/bower_components/AdminLTE/AdminLTE.css" rel="stylesheet"/>
+    <link href="static/bower_components/angularjs-datepicker/src/css/angular-datepicker.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="static/bower_components/angular-tooltips/dist/angular-tooltips.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="static/bower_components/angular-loading-bar/build/loading-bar.min.css" rel="stylesheet" type="text/css"
+          media="all"/>
+    <link rel="stylesheet" href="static/bower_components/please-wait/build/please-wait.css"/>
+    <link rel="stylesheet" href="static/bower_components/angucomplete-alt/angucomplete-alt.css"/>
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"/>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body cz-shortcut-listen="true"
+      style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+
+<ui-view></ui-view>
+
+<!-- A D M I N    T E M P L A T E    D E P E N D E N C I E S -->
+<script type="text/javascript" src="static/bower_components/dashboard-template/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="static/bower_components/dashboard-template/metisMenu.min.js"></script>
+<script type="text/javascript" src="static/bower_components/dashboard-template/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="static/bower_components/dashboard-template/init.js"></script>
+<script type="text/javascript" src="static/bower_components/please-wait/build/please-wait.min.js"></script>
+
+
+<!-- A N G U L A R    D E P E N D E N C I E S -->
+<script type="text/javascript" src="static/bower_components/angular/angular.min.js"></script>
+<script type="text/javascript"
+        src="static/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="static/bower_components/angular-resource/angular-resource.min.js"></script>
+<script type="text/javascript" src="static/bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script type="text/javascript" src="static/bower_components/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="static/bower_components/AngularJS-Toaster/toaster.min.js"></script>
+<script type="text/javascript" src="static/bower_components/ngSweetAlert/SweetAlert.min.js"></script>
+<script type="text/javascript" src="static/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="static/bower_components/chart.js/dist/Chart.min.js"></script>
+<script type="text/javascript" src="static/bower_components/angular-chart.js/dist/angular-chart.js"></script>
+<script type="text/javascript" src="static/bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>
+<script type="text/javascript" src="static/bower_components/angular-tooltips/dist/angular-tooltips.min.js"></script>
+<script type='text/javascript' src="static/bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+<script type='text/javascript' src="static/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script type='text/javascript' src="static/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script type='text/javascript' src="static/bower_components/cryptojslib/rollups/aes.js"></script>
+<script type='text/javascript' src="static/bower_components/angular-cryptography/mdo-angular-cryptography.js"></script>
+<script type='text/javascript' src="static/bower_components/angularUtils-pagination/dirPagination.js"></script>
+<script type='text/javascript' src="static/bower_components/angucomplete-alt/dist/angucomplete-alt.min.js "></script>
+
+<!-- A N G U L A R    C O N F I G U R A T I O N -->
+<script type="text/javascript" src="static/app/index.module.js"></script>
+<script type="text/javascript" src="static/app/index.route.js"></script>
+<script type="text/javascript" src="static/app/index.constants.js"></script>
+<script type="text/javascript" src="static/app/index.run.js"></script>
+<script type="text/javascript" src="static/app/index.interceptor.js"></script>
+
+<!-- A N G U L A R    C O N T R O L L E R S -->
+<script type="text/javascript" src="static/app/controller/login.controller.js"></script>
+<script type="text/javascript" src="static/app/controller/main.controller.js"></script>
+<script type="text/javascript" src="static/app/controller/principal.controller.js"></script>
+<script type="text/javascript" src="static/app/controller/user.controller.js"></script>
+<script type="text/javascript" src="static/app/controller/search.engine.controller.js"></script>
+<script type="text/javascript" src="static/app/controller/operation.controller.js"></script>
+<script type="text/javascript" src="static/app/controller/risk.controller.js"></script>
+<script type="text/javascript" src="static/app/controller/rework.controller.js"></script>
+
+<!-- A N G U L A R    S E R V I C E S -->
+<script type="text/javascript" src="static/app/service/login.service.js"></script>
+<script type="text/javascript" src="static/app/service/user.service.js"></script>
+<script type="text/javascript" src="static/app/service/search.engine.service.js"></script>
+<script type="text/javascript" src="static/app/service/operation.service.js"></script>
+<script type="text/javascript" src="static/app/service/risk.service.js"></script>
+<script type="text/javascript" src="static/app/service/rework.service.js"></script>
+<script type="text/javascript" src="static/app/service/utils.service.js"></script>
+<script type="text/javascript">
+    var loading_screen = pleaseWait({
+        logo: "static/assets/images/hitss_logo.png",
+        backgroundColor: '#fff',
+        loadingHtml: "<div class='spinner'></div>"
+    });
+    if (loading_screen) {
+        loading_screen.finish();
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<script type="text/ng-template" id="users.activity.view.html">
+    <form role="form" novalidate name="loginForm">
+        <div class="modal-header">
+            <div class="row">
+                <div class="col-md-12">
+                    <a ng-click="cancel()" style="text-decoration: none;"><h1 class="page-header"
+                                                                              style="color: slategray;">
+                        <i class="zmdi zmdi-arrow-back margin-right-10px select-item-pointer"></i> Administración de
+                        Usuarios
+                    </h1></a>
+                    <ol class="breadcrumb" style="background: #055473;color: wheat;">
+                        <li class="active">
+                            <span class="zmdi zmdi-alert-triangle text-white"></span></i> <i
+                                class="zmdi zmdi-circle text-white"></i><a
+                                class="text-white"> Usuarios </a> <i class="zmdi zmdi-circle text-white"></i> <span
+                                class="text-white">administración de usuarios</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <div class="col-md-12">
+                <b><h4 class="sub-header width-70"> {{userdetail.name}} {{userdetail.lastname}}<span
+                        class="text-gray-light">  ({{userdetail.email}})  </span><br>
+                </h4></b>
+
+                <div class="form-group width-40">
+                    <div class="input-group date">
+                        <div class="input-group-addon">
+                            <i class="zmdi zmdi-search"></i>
+                        </div>
+                        <input class="form-control" placeholder="Buscar Actividad" type="text"
+                               ng-model="activity_user_search_engine"
+                               data-ng-required="true">
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped">
+                <thead class="bg-gray">
+                <td><i class="zmdi zmdi-account margin-right-10px"></i> Usuario</td>
+                <td><i class="zmdi zmdi-settings-square margin-right-10px"></i>Modulo</td>
+                <td><i class="zmdi zmdi-format-align-center margin-right-10px"></i>Mensaje</td>
+                <td><i class="zmdi zmdi-calendar margin-right-10px"></i>Fecha</td>
+                </thead>
+                <tbody ng-show="load">
+                <tr dir-paginate="activity in userActivities |itemsPerPage: 10 | filter:activity_user_search_engine as activity_filter ">
+                    <td>
+                        <h5 style="font-size: 14px;" class="bold">{{activity.detail_user}}<br>
+                            <small><i class="zmdi zmdi-shield-security margin-right-5px text-bold"></i> {{activity.access_token}}</small>
+                        </h5>
+                    </td>
+                    <td>
+                        <h5 style="font-size: 14px;">{{activity.module}}</h5>
+                    </td>
+                    <td>
+                        <h5 style="font-size: 14px;">{{activity.detail_activity}}</h5>
+                    </td>
+                    <td>
+                        <h5 style="font-size: 14px;">{{ activity.date | date:'dd-MM-yyyy HH:mm:ss'}}</h5>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div ng-show="!load" class="center">
+                <ng-include src="'static/views/utils/loading.view.html'"></ng-include>
+            </div>
+            <div class="row" ng-if="activity_filter == 0 && userActivities != 0">
+                <h5 class="text-center bold margin-top-30px">No se encontraron coincidencias</h5>
+            </div>
+            <div class="row" ng-if="userActivities == 0">
+                <h5 class="text-center">Usuario no tiene actividad.</h5>
+            </div>
+            <dir-pagination-controls
+                    max-size="10"
+                    direction-links="true"
+                    boundary-links="true">
+            </dir-pagination-controls>
+        </div>
+    </form>
+</script>

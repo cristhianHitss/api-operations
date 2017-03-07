@@ -1,0 +1,117 @@
+<script type="text/ng-template" id="risk.show.risks.view.html">
+    <div class="modal-header">
+        <div class="row">
+            <div class="col-md-12">
+                <a ng-click="cancel()" style="text-decoration: none;"><h1 class="page-header" style="color: slategray;">
+                    <i class="zmdi zmdi-arrow-back margin-right-10px select-item-pointer"></i> Administración de Riesgos
+                </h1></a>
+                <ol class="breadcrumb" style="background: #055473;color: wheat;">
+                    <li class="active">
+                        <span class="zmdi zmdi-alert-triangle text-white"></span></i> <i
+                            class="zmdi zmdi-circle text-white"></i><a
+                            class="text-white"> Riesgos </a> <i class="zmdi zmdi-circle text-white"></i> <span
+                            class="text-white">administración de riesgos</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="row row-content">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active select-item-pointer"><a data-toggle="tab" aria-expanded="true" ng-click="open = 1">Riesgos Abiertos</a></li>
+                    <li class="select-item-pointer"><a   data-toggle="tab" aria-expanded="false" ng-click="open = 2">Riesgos Cerrados</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active">
+                        <table class="table table-condensed">
+                            <tbody>
+                            <tr>
+                                <th></th>
+                                <th>Fecha Deteccion</th>
+                                <th>Estatus</th>
+                                <th>Riesgo</th>
+                            </tr>
+
+                            <tr ng-show="risk_proyect.proyect_Risk != 0 && open == 1"
+                                ng-repeat="risk in risk_proyect.proyect_Risk | orderBy:'-priority_order_identifier'"
+                                ng-if="risk.id_Status != 'Cerrado'"    >
+                                <td><span class="label" style="background-color: {{risk.priority}}">    </span></td>
+                                </td>
+                                <td>
+                                    <h5 style="font-size: 14px;" class="bold"><i
+                                            class="zmdi zmdi-calendar margin-right-5px text-bold"></i> {{ risk.detection_Date |
+                                        date:'dd-MM-yyyy'}}<br>
+                                        <small><i class="zmdi zmdi-time margin-right-5px text-bold"></i> {{ risk.detection_Date |
+                                            date:'HH:mm:ss'}}
+                                        </small>
+                                    </h5>
+                                </td>
+                                <td>{{risk.id_Status}}</td>
+                                <td>{{risk.risk}}
+                                    <br>
+
+                                    <div class="row" style="float: right;">
+                                        <div class="col-md-4 select-item-pointer" ng-click="view(risk)">
+                                            <a class=" text-center" style="color: #18bc9c;"><i class="material-icons">remove_red_eye</i>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4 select-item-pointer" ng-click="edit(risk)">
+                                            <a class=" text-center" style="color: #18bc9c;"><i class="material-icons">mode_edit</i>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4 select-item-pointer" ng-click="historic(risk)">
+                                            <a class=" text-center" style="color: #18bc9c;"><i class="material-icons">history</i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr ng-show="risk_proyect.proyect_Risk != 0 && open == 2"
+                                ng-repeat="risk in risk_proyect.proyect_Risk | orderBy:'-priority_order_identifier'"
+                                ng-if="risk.id_Status  === 'Cerrado'">
+                                <td><span class="label" style="background-color: {{risk.priority}}">    </span></td>
+                                </td>
+                                <td>
+                                    <h5 style="font-size: 14px;" class="bold"><i
+                                            class="zmdi zmdi-calendar margin-right-5px text-bold"></i> {{ risk.detection_Date |
+                                        date:'dd-MM-yyyy'}}<br>
+                                        <small><i class="zmdi zmdi-time margin-right-5px text-bold"></i> {{ risk.detection_Date |
+                                            date:'HH:mm:ss'}}
+                                        </small>
+                                    </h5>
+                                </td>
+                                <td>{{risk.id_Status}}</td>
+                                <td>{{risk.risk}}
+                                    <br>
+
+                                    <div class="row" style="float: right;">
+                                        <div class="col-md-4 select-item-pointer" ng-click="view(risk)">
+                                            <a class=" text-center" style="color: #18bc9c;"><i class="material-icons">remove_red_eye</i>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4 select-item-pointer" ng-click="edit(risk)">
+                                            <a class=" text-center" style="color: #18bc9c;"><i class="material-icons">mode_edit</i>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4 select-item-pointer" ng-click="historic(risk)">
+                                            <a class=" text-center" style="color: #18bc9c;"><i class="material-icons">history</i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="row" ng-if="risk_proyect.proyect_Risk == 0">
+                            <h5 class="text-center">Este proyecto no tiene riesgos.</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,45 @@
+<script type="text/ng-template" id="risk.historic.view.html">
+    <div class="modal-header">
+        <div class="row">
+            <div class="col-md-12">
+                <a ng-click="cancel()" style="text-decoration: none;"><h1 class="page-header" style="color: slategray;">
+                    <i class="zmdi zmdi-arrow-back margin-right-10px select-item-pointer"></i> Administración de Riesgos
+                </h1></a>
+                <ol class="breadcrumb" style="background: #055473;color: wheat;">
+                    <li class="active">
+                        <span class="zmdi zmdi-alert-triangle text-white"></span></i> <i
+                            class="zmdi zmdi-circle text-white"></i><a
+                            class="text-white"> Riesgos </a> <i class="zmdi zmdi-circle text-white"></i> <span
+                            class="text-white">administración de riesgos</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <h5 class="page-header" style="color: slategray;margin-top: -10px;">
+            Historico
+        </h5>
+
+        <div class="row">
+            <div class="col-md-12" ng-repeat="historic in historics" ng-if="historics != 0">
+                <h5 class="card-title"><img src="https://cdn3.iconfinder.com/data/icons/folders-outline/512/delayed_postponed_folder_clock_timer_archive-512.png" style="width: 30px;">  Actualizado por <b style="color: #0073b7">{{historic.owner}} </b>
+                    el <b
+                            style="color: #0073b7"> {{ historic.created_at |
+                        date:'dd-MM-yyyy'}} </b> a
+                    las <b style="color: #0073b7"> {{ historic.created_at | date:'HH:mm:ss'}}</b><small class=" text-orange" style="float: right;margin-right: 3px;">- {{ historic.id}} -</small></h5>
+                <hr class="hr_line" style="margin: 0px;margin-top: -10px;background: #9e9e9e;">
+                <div class="card-block">
+                    <p style=" color: #b4b4b4;" ng-repeat="modified in historic.modificationFieldDtos"><b
+                            style="color: #5a5a5a;">{{modified.field_name}}: </b>{{modified.field_message}}
+                    </p>
+                </div>
+                <footer><cite title="Source Title"> {{historic.tmp_comment}}</cite></footer>
+                <br>
+            </div>
+            <div class="row" ng-if="historics == 0">
+                <h5 class="text-center">Este riesgo no ha tenido modificaciones</h5>
+            </div>
+        </div>
+    </div>
+</script>

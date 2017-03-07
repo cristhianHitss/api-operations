@@ -1,0 +1,221 @@
+db.getCollection('EffectivenessActionsProyectRisk').insert([
+{
+    "_id" : ObjectId("5880f72f8bf6a6e4f8ff85e7"),
+    "effectivenessActions_Name" : "Si"
+},
+{
+    "_id" : ObjectId("5880f7328bf6a6e4f8ff85e8"),
+    "effectivenessActions_Name" : "No"
+}]);
+db.getCollection('FrequencyMonitoringProyectRisk').insert([
+{
+    "_id" : ObjectId("5880faaf8bf6a6e4f8ff85f2"),
+    "frequencyMonitoring_Name" : "Diario"
+},
+{
+    "_id" : ObjectId("5880fab38bf6a6e4f8ff85f3"),
+    "frequencyMonitoring_Name" : "Semanal"
+}
+,
+{
+    "_id" : ObjectId("5880fabc8bf6a6e4f8ff85f4"),
+    "frequencyMonitoring_Name" : "Quincenal"
+}
+,
+{
+    "_id" : ObjectId("5880faca8bf6a6e4f8ff85f5"),
+    "frequencyMonitoring_Name" : "Mensual"
+}
+
+]);
+db.getCollection('ImpactProyectRisk').insert([
+{
+    "_id" : ObjectId("5880fcaa8bf6a6e4f8ff85f9"),
+    "impact_Name" : "Muy bajo",
+    "impact_Value" : 1.0
+},
+{
+    "_id" : ObjectId("5880fcc08bf6a6e4f8ff85fa"),
+    "impact_Name" : "Bajo",
+    "impact_Value" : 2.0
+},
+{
+    "_id" : ObjectId("5880fcc88bf6a6e4f8ff85fb"),
+    "impact_Name" : "Moderado",
+    "impact_Value" : 3.0
+}
+,
+{
+    "_id" : ObjectId("5880fcd08bf6a6e4f8ff85fc"),
+    "impact_Name" : "Alto",
+    "impact_Value" : 4.0
+},
+{
+    "_id" : ObjectId("5880fcdb8bf6a6e4f8ff85fd"),
+    "impact_Name" : "Muy alto",
+    "impact_Value" : 5.0
+}
+]);
+db.getCollection('PhaseProyectRisk').insert([
+{
+    "_id" : ObjectId("5880f7e28bf6a6e4f8ff85e9"),
+    "phase_Name" : "Visión"
+},
+{
+    "_id" : ObjectId("5880f7f98bf6a6e4f8ff85ea"),
+    "phase_Name" : "Planeación"
+},
+{
+    "_id" : ObjectId("5880f8068bf6a6e4f8ff85eb"),
+    "phase_Name" : "Desarrollo"
+},
+{
+    "_id" : ObjectId("5880f8258bf6a6e4f8ff85ec"),
+    "phase_Name" : "Estabilización"
+}
+,
+{
+    "_id" : ObjectId("5880f82e8bf6a6e4f8ff85ed"),
+    "phase_Name" : "Implementación"
+}
+,
+{
+    "_id" : ObjectId("5880f83e8bf6a6e4f8ff85ee"),
+    "phase_Name" : "Análisis"
+}
+,
+{
+    "_id" : ObjectId("5880f8488bf6a6e4f8ff85ef"),
+    "phase_Name" : "Diseño"
+},
+{
+    "_id" : ObjectId("5880f8528bf6a6e4f8ff85f0"),
+    "phase_Name" : "Pruebas"
+},
+{
+    "_id" : ObjectId("5880f85a8bf6a6e4f8ff85f1"),
+    "phase_Name" : "Todas"
+}
+]);
+db.getCollection('ProbabilityProyectRisk').insert([
+{
+    "_id" : ObjectId("5880fdd78bf6a6e4f8ff85fe"),
+    "probability_Name" : "Muy baja",
+    "probability_Value" : 0.1
+},
+{
+    "_id" : ObjectId("5880fdec8bf6a6e4f8ff85ff"),
+    "probability_Name" : "Baja",
+    "probability_Value" : 0.3
+}
+,
+{
+    "_id" : ObjectId("5880fdf78bf6a6e4f8ff8600"),
+    "probability_Name" : "Moderada",
+    "probability_Value" : 0.5
+}
+,
+{
+    "_id" : ObjectId("5880fe028bf6a6e4f8ff8601"),
+    "probability_Name" : "Alta",
+    "probability_Value" : 0.7
+},
+{
+    "_id" : ObjectId("5880fe118bf6a6e4f8ff8602"),
+    "probability_Name" : "Muy alta",
+    "probability_Value" : 0.9
+}
+
+]);
+db.getCollection('SourceProyectRisk').insert([
+{
+    "_id" : ObjectId("58810fd88bf6a6e4f8ff8603"),
+    "source_Name" : "Interno"
+}
+,
+{
+    "_id" : ObjectId("58810fdd8bf6a6e4f8ff8604"),
+    "source_Name" : "Externo"
+}
+]);
+db.getCollection('StatusProyectRisk').insert([
+{
+    "_id" : ObjectId("588110608bf6a6e4f8ff8605"),
+    "status_Name" : "Cerrado"
+}
+,
+{
+    "_id" : ObjectId("588110668bf6a6e4f8ff8606"),
+    "status_Name" : "Abierto"
+}
+,
+{
+    "_id" : ObjectId("588110748bf6a6e4f8ff8607"),
+    "status_Name" : "No presentado"
+}
+,
+{
+    "_id" : ObjectId("588110818bf6a6e4f8ff8608"),
+    "status_Name" : "Asunto"
+}
+,
+{
+    "_id" : ObjectId("5881108a8bf6a6e4f8ff8609"),
+    "status_Name" : "Controlado"
+}
+
+]);
+db.getCollection('TypeProyectRisk').insert([
+{
+    "_id" : ObjectId("588123b68bf6a6e4f8ff860e"),
+    "type_Name" : "Técnico"
+}
+,
+{
+    "_id" : ObjectId("588123bf8bf6a6e4f8ff860f"),
+    "type_Name" : "Calendario"
+}
+,
+{
+    "_id" : ObjectId("588123d38bf6a6e4f8ff8610"),
+    "type_Name" : "Administración"
+},
+{
+    "_id" : ObjectId("588123dd8bf6a6e4f8ff8611"),
+    "type_Name" : "Organizacionales"
+}
+]);
+db.getCollection('StrategyProyectRisk').insert([
+
+{
+    "_id" : ObjectId("588110e58bf6a6e4f8ff860a"),
+    "stragegy_Name" : "Evitar"
+}
+,
+{
+    "_id" : ObjectId("588110ef8bf6a6e4f8ff860b"),
+    "stragegy_Name" : "Trasnferir"
+}
+,
+{
+    "_id" : ObjectId("588110f78bf6a6e4f8ff860c"),
+    "stragegy_Name" : "Mitigar"
+}
+,
+{
+    "_id" : ObjectId("5881118e8bf6a6e4f8ff860d"),
+    "stragegy_Name" : "Aceptar"
+}
+
+]);
+
+
+
+
+
+
+
+
+
+
+
