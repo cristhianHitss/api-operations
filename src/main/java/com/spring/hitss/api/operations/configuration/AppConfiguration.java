@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@EnableWebMvck
+@EnableWebMvc
 @ComponentScan(basePackages = "com.spring.hitss.api.operations")
 public class AppConfiguration extends WebMvcConfigurerAdapter{
 
