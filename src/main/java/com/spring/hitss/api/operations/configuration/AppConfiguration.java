@@ -21,6 +21,7 @@ public class AppConfiguration extends WebMvcConfigurerAdapter{
         registry.viewResolver(viewResolver);
     }
 
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static/");
