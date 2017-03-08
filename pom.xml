@@ -121,7 +121,6 @@
                 <version>1.1.0.Alpha5</version>
                  <configuration>
                      <hostname>35.187.79.87</hostname>
-                     <!--<hostname>127.0.0.1</hostname>-->
                      <port>9990</port>
                      <username>castanedaci</username>
                      <password>azsxdcfv</password>
