@@ -3,7 +3,7 @@
 
 angular
     .module('global-hitss-app')
-    // Url del servicio RESTful
+    // URI REST SERVICE
     //.constant('AppUrlPath', 'http://localhost:8080/api-operations')
     .constant('AppUrlPath', 'http://35.187.79.87:8080/api-operations')
     .constant('access_api_data', {client_id: "hitss_front_application", client_password: '0p3r4t10n'})
