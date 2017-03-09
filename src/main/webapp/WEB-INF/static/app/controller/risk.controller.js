@@ -105,9 +105,7 @@ angular
                 var popupWin = window.open('', '_blank', 'width=1300,height=600,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
                 popupWin.window.focus();
                 popupWin.document.write('<!DOCTYPE html><html><head>' +
-                '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>	<script type="text/javascript" src="//cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script><script type="text/javascript" src="//cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script>'+
-                '<script>(function(){var form = $(".area-imprimir"), cache_width = form.width(), a4  =[ 595.28,  841.89]; function createPDF(){ 	getCanvas().then(function(canvas){ var  img = canvas.toDataURL("image/png"), doc = new jsPDF({ unit:"px",format:"a4" }); doc.addImage(img, "JPEG", 20, 20);  doc.save("comprobante.pdf"); form.width(cache_width);	});} function getCanvas(){ form.width((a4[0]*1.33333) -80).css("max-width","none"); return html2canvas(form,{ imageTimeout:2000, removeContainer:true });} $("body").scrollTop(0); createPDF(); }());</script>'+
-                '</head><body onload="window.print()"><div class="reward-body">' + printContents + '</div></html>');
+                  '</head><body onload="window.print()"><div class="reward-body">' + printContents + '</div></html>');
                 popupWin.onbeforeunload = function (event) {
                     popupWin.close();
                     return '.\n';
@@ -120,8 +118,7 @@ angular
                 var popupWin = window.open('', '_blank', 'width=1300,height=600');
                 popupWin.document.open();
                 popupWin.document.write('<html><head>'+
-                '<script>(function(){var form = $(".area-imprimir"), cache_width = form.width(), a4  =[ 595.28,  841.89]; function createPDF(){ 	getCanvas().then(function(canvas){ var  img = canvas.toDataURL("image/png"), doc = new jsPDF({ unit:"px",format:"a4" }); doc.addImage(img, "JPEG", 20, 20);  doc.save("comprobante.pdf"); form.width(cache_width);	});} function getCanvas(){ form.width((a4[0]*1.33333) -80).css("max-width","none"); return html2canvas(form,{ imageTimeout:2000, removeContainer:true });} $("body").scrollTop(0); createPDF(); }());</script>'+
-                '</head><body onload="window.print()">' + printContents + '</html>');
+                 '</head><body onload="window.print()">' + printContents + '</html>');
                 popupWin.document.close();
             }
             popupWin.document.close();
